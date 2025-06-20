@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Ulang Tahun, Sayang!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      color: #000;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .slideshow-container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .card {
+      display: none;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff7e7e;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #ff4b4b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow-container">
+    <div class="slide"><img src="finza 1 (1).jpeg" alt="Slide 1"></div>
+    <div class="slide"><img src="finza 1 (2).jpeg" alt="Slide 2"></div>
+    <div class="slide"><img src="finza 3.jpeg" alt="Slide 3"></div>
+    <div class="slide"><img src="finza 4.jpeg" alt="Slide 4"></div>
+  </div>
+
+  <button onclick="nextSlide()">Lanjut ➡️</button>
+
+  <div class="card" id="birthdayCard">
+    <h2>Selamat Ulang Tahun, Sayang! 🎂💖</h2>
+    <p>Ga cukup kayanya kalo doa aku buat kamu disebutin satu persatu ❤️</p><br>
+    <p>Tapi semoga di ulang tahun kamu yang ke-17 ini doa aku yang paling besar semoga panjang umur, sehat selalu, pencapaian yang kamu targetkan semoga tersemogakan, aku selalu aminin semua doa-doa kamu dari jauh!</p><br>
+    <p>I'll always pray the best for u! </p><br>
+    <h6>LOVE U SAYANG</h6>
+  </div>
+
+  <audio autoplay loop>
+    <source src="perfect.mp3.aac" type="audio/mpeg">
+  </audio>
+
+  <button>Klik</button>
+
+<script>
+  function unmuteAudio() {
+    const audio = document.getElementById("bgMusic");
+    audio.muted = false;
+    audio.play();
+  }
+</script>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    const card = document.getElementById("birthdayCard");
+
+    function showSlide(index) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      if (index < slides.length) {
+        slides[index].style.display = "block";
+        card.style.display = "none";
+      } else {
+        card.style.display = "block";
+      }
+    }
+
+    function nextSlide() {
+      slideIndex++;
+      showSlide(slideIndex);
+    }
+
+    // Tampilkan slide pertama saat load
+    showSlide(slideIndex);
+  </script>
+</body>
+</html>
